@@ -1,2 +1,14 @@
 @import 'longform-styles';
 @import 'philly-styles/values';
+
+
+
+#base-sticky-wrapper {
+    width: 300px;
+    float: left;
+    margin-left: -350px;
+}
+
+#base {
+    height: 501.516px;
+}
