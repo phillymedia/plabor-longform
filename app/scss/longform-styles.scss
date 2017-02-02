@@ -16,7 +16,6 @@
     background-attachment: fixed;
     background-size: cover;
     background-color: #000;
-    background-image: url("http://media.philly.com/images/plabor_maebori_1_1200.jpg");
     @include tablet {
         min-height: 500px;
         background-size: contain;

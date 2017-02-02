@@ -6,6 +6,7 @@ $(document).ready(function() {
     var distance1 = $('#mapHook-1').offset().top,
         distance2 = $('#mapHook-2').offset().top,
         distance3 = $('#mapHook-3').offset().top,
+        bottomImage = $('#backgroundImage-2').offset().top,
         $window = $(window);
     var path1 = document.querySelector('#highlight-1');
     var path2 = document.querySelector('#highlight-2');
