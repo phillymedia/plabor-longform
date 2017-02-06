@@ -91,5 +91,14 @@ $(document).ready(function() {
                 })
             });
         }
+        console.log(bottomImage - $window.scrollTop())
+        var halfway = $(window).height()/1.1;
+        // if ($window.scrollTop() >= (bottomImage - halfway)) {
+        //   console.log("fire");
+        //   var basePos =
+        //   $("#base").unstick();
+        //   $("base").addClass("map-absolute");
+        // }
+
     });
 });
