@@ -1,8 +1,11 @@
 $(document).ready(function() {
     $('#recircSpecials').load('/philly/news/special_packages/390291181.html  #morereports');
+
+    if($(window).width() >= 1300){
     $("#base").sticky({
-        topSpacing: 150
+        topSpacing: 200
     });
+    }
     var distance1 = $('#mapHook-1').offset().top,
         distance2 = $('#mapHook-2').offset().top,
         distance3 = $('#mapHook-3').offset().top,
@@ -62,7 +65,7 @@ $(document).ready(function() {
                 step3 = !step3;
             });
         }
-        if ($window.scrollTop() >= distance2 - 200 && step3 == true) {
+        if (step3 == true) {
             $("#highlight-3").animate({
                 'stroke-dashoffset': 0,
             }, 2000, function() {
@@ -77,7 +80,7 @@ $(document).ready(function() {
                 step4 = !step4;
             });
         }
-        if ($window.scrollTop() >= distance3 - 200 && step4 == true) {
+        if (step4 == true) {
             $("#highlight-4").delay(2000).animate({
                 'stroke-dashoffset': 0,
             }, 2000, function() {
@@ -91,14 +94,36 @@ $(document).ready(function() {
                 })
             });
         }
-        console.log(bottomImage - $window.scrollTop())
-        var halfway = $(window).height()/1.1;
-        // if ($window.scrollTop() >= (bottomImage - halfway)) {
-        //   console.log("fire");
-        //   var basePos =
-        //   $("#base").unstick();
-        //   $("base").addClass("map-absolute");
-        // }
+
+        $.fn.isOnScreen = function(){
+
+            var win = $(window);
+
+            var viewport = {
+                top : win.scrollTop(),
+                left : win.scrollLeft()
+            };
+            viewport.right = viewport.left + win.width();
+            viewport.bottom = viewport.top + win.height();
+
+            var bounds = this.offset();
+            bounds.right = bounds.left + this.outerWidth();
+            bounds.bottom = bounds.top + this.outerHeight();
+
+            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+        };
+
+
+
+    if($(window).width() >= 1300){
+        if  ($('#backgroundImage-2').isOnScreen()) {
+          $("#base").fadeOut();
+        } else {
+          $("#base").fadeIn();
+        }
+      }
+
 
     });
 });
