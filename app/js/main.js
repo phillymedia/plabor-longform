@@ -119,8 +119,6 @@ $(document).ready(function() {
     if($(window).width() >= 1300){
         if  ($('#backgroundImage-2').isOnScreen()) {
           $("#base").fadeOut();
-        } if  ($('#recircBox').isOnScreen()) {
-          $("#base").hide();
         } else {
           $("#base").fadeIn();
         }
